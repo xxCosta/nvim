@@ -23,8 +23,9 @@ return require('packer').startup(function(use)
 	  requires = { {"nvim-lua/plenary.nvim"} }
   }
   use 'mbbill/undotree'
-  use 'tpope/vim-fugitive'
-
+  -- use 'tpope/vim-fugitive'
+  use 'mhinz/vim-signify'
+  -- use {'prettier/vim-prettier', run = 'npm install --frozen-lockfile --production'}
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v3.x',

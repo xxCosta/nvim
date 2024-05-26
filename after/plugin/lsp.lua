@@ -10,6 +10,7 @@ lsp_zero.on_attach(function(client, bufnr)
   --vim.keymap.set("n","gd", function() vim.lsp.buf.definition() end, opts)
 end)
 
+
 -- to learn how to use mason.nvim
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
 require('mason').setup({})
