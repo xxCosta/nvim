@@ -1,0 +1,5 @@
+require("2024v2.remap")
+require("2024v2.set")
+require("2024v2.lazy")
+--require("2024v2.colors")
+print("WELCOME TO HELL")
