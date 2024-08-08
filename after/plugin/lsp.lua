@@ -1,4 +1,20 @@
 local lsp_zero = require('lsp-zero')
+ -- for more information on tab behavior...
+ -- see https://lsp-zero.netlify.app/v3.x/autocomplete.html#enable-super-tab
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+  }),
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+})
 
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
