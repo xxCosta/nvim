@@ -28,3 +28,6 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+-- vim.cmd [[ highlight CursorLineNr guifg=blue guibg=lightGrey ]]
+-- vim.cmd [[ highlight CursonLine guifg=blue guibg=red ]]
+-- vim.opt.cursorline = true
