@@ -1,20 +1,68 @@
 local lsp_zero = require('lsp-zero')
- -- for more information on tab behavior...
+local luasnip = require('luasnip')
+
+-- for more information on tab behavior...
  -- see https://lsp-zero.netlify.app/v3.x/autocomplete.html#enable-super-tab
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
+
+
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
+-- luasnip.config.set_config{
+--     history = true,
+--     updateEvents = "TextChanged, TextChangedI",
+--     enable_autosnippets = true
+-- }
+
+
 cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-    ['<Tab>'] = cmp_action.luasnip_supertab(),
-    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-  }),
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
+    sources = {
+        {name = 'nvim_lsp'},
+        {name = 'luasnip'},
+    },
+
+
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
+    },
+
+
+    mapping = cmp.mapping.preset.insert({
+        ['<CR>'] = cmp.mapping.confirm({select = true}),
+        -- Super tab
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            local col = vim.fn.col('.') - 1
+
+            if cmp.visible() then
+                cmp.select_next_item({behavior = 'select'})
+            elseif luasnip.expand_or_locally_jumpable() then
+                luasnip.expand_or_jump()
+            elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+                fallback()
+            else
+                cmp.complete()
+            end
+        end, {'i', 's'}),
+
+        -- Super shift tab
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+
+            if cmp.visible() then
+                cmp.select_prev_item({behavior = 'select'})
+            elseif luasnip.locally_jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, {'i', 's'}),
+    }),
 })
+
 
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
