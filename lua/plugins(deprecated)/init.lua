@@ -28,18 +28,18 @@ return {
     },
     'mbbill/undotree',
     'mhinz/vim-signify',
---    {
---      'VonHeikemen/lsp-zero.nvim',
---      branch = 'v3.x',
---      dependencies = {
---          {'williamboman/mason.nvim'},
---          {'williamboman/mason-lspconfig.nvim'},
---
---          {'neovim/nvim-lspconfig'},
---          {'hrsh7th/nvim-cmp'},
---          {'hrsh7th/cmp-nvim-lsp'},
---
---          { 'saadparwaiz1/cmp_luasnip' }
---      }
---  },
+    {
+      'VonHeikemen/lsp-zero.nvim',
+      branch = 'v3.x',
+      dependencies = {
+          {'williamboman/mason.nvim'},
+          {'williamboman/mason-lspconfig.nvim'},
+
+          {'neovim/nvim-lspconfig'},
+          {'hrsh7th/nvim-cmp'},
+          {'hrsh7th/cmp-nvim-lsp'},
+
+          { 'saadparwaiz1/cmp_luasnip' }
+      }
+  },
   }

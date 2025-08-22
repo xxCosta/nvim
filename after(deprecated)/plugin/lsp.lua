@@ -17,7 +17,6 @@ require("luasnip.loaders.from_vscode").lazy_load()
 --     enable_autosnippets = true
 -- }
 
-
 cmp.setup({
     sources = {
         {name = 'nvim_lsp'},
