@@ -19,7 +19,6 @@ return {
         dependencies = { {'nvim-lua/plenary.nvim'} }
     },
     'NLKNguyen/papercolor-theme',
-    {'nvim-treesitter/nvim-treesitter',build = ':TSUpdate'},
     "nvim-lua/plenary.nvim", -- don't forget to add this one if you don't have it yet!
     {
         "ThePrimeagen/harpoon",
@@ -28,6 +27,10 @@ return {
     },
     'mbbill/undotree',
     'mhinz/vim-signify',
+    {
+        "mason-org/mason.nvim",
+        opts = {}
+    },
 --    {
 --      'VonHeikemen/lsp-zero.nvim',
 --      branch = 'v3.x',
