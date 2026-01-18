@@ -1,36 +1,38 @@
 return {
     {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
-    },
-
-    {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = { "williamboman/mason.nvim" },
-        config = function()
-            require("mason-lspconfig").setup {
-                ensure_installed = { "lua_ls", "tsserver", "pyright", "clangd" },
-            }
-        end,
-    },
-
-    {
         "neovim/nvim-lspconfig",
         dependencies = {
+            "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp",
         },
-        config = function()
-            local lspconfig = require("lspconfig")
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            for _, server in ipairs(require("mason-lspconfig").get_installed_servers()) do
-                lspconfig[server].setup {
-                    capabilities = capabilities,
-                }
-            end
+        config = function()
+            -- Mason core
+            require("mason").setup()
+
+            -- Only install clangd + lua_ls
+            require("mason-lspconfig").setup({
+                ensure_installed = { "lua_ls", "clangd" },
+            })
+
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            local lspconfig = require("lspconfig")
+
+            -- lua_ls (simple)
+            lspconfig.lua_ls.setup({
+                capabilities = capabilities,
+            })
+
+            -- clangd (your custom config)
+            lspconfig.clangd.setup({
+                capabilities = capabilities,
+                cmd = {
+                    "clangd",
+                    "--header-insertion=never",
+                    "--compile-commands-dir=.",
+                },
+            })
         end,
     },
 }
