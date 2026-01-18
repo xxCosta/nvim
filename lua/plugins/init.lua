@@ -27,10 +27,10 @@ return {
     },
     'mbbill/undotree',
     'mhinz/vim-signify',
-    {
-        "mason-org/mason.nvim",
-        opts = {}
-    },
+    -- {
+    --     "mason-org/mason.nvim",
+    --     opts = {}
+    -- },
 --    {
 --      'VonHeikemen/lsp-zero.nvim',
 --      branch = 'v3.x',
