@@ -25,7 +25,10 @@ vim.keymap.set("v", "<S-Tab>", "<gv")
 
 -- source luasnip
 -- vim.keymap.set("n", "<leader><leader>s","<cmd>source ~/.config/nvim/lua/plugins/luasnip.lua<CR>")
+--
 
+vim.keymap.set("n", "zl", "10zl",{ noremap = true, silent = true})
+vim.keymap.set("n", "zh", "10zh",{ noremap = true, silent = true})
 
 
 
