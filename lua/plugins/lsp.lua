@@ -33,6 +33,16 @@ return {
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
       end
+      
+      vim.api.nvim_create_autocmd("BufWritePre",{
+
+        pattern = {"*.cpp"},
+        callback = function()
+          vim.lsp.buf.format()
+        
+        end
+      
+      })
 
       vim.lsp.config("lua_ls",{
         on_attach = on_attach,
