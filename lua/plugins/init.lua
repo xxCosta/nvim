@@ -20,11 +20,6 @@ return {
   },
   'NLKNguyen/papercolor-theme',
   "nvim-lua/plenary.nvim", -- don't forget to add this one if you don't have it yet!
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { {"nvim-lua/plenary.nvim"} }
-  },
   'mbbill/undotree',
   'mhinz/vim-signify',
   'tpope/vim-fugitive',
