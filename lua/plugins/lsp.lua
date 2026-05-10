@@ -11,7 +11,7 @@ return {
     },
 
     opts = {
-      ensure_installed = { "lua_ls", "clangd", "dockerls", "bashls" },
+      ensure_installed = { "lua_ls", "clangd", "dockerls", "bashls", "ts_ls" },
     },
 
     config = function(_, opts)
@@ -55,6 +55,7 @@ return {
       vim.lsp.enable("clangd")
       vim.lsp.enable("dockerls")
       vim.lsp.enable("bashls")
+      vim.lsp.enable("ts_ls")
     end,
   },
 }
