@@ -37,6 +37,11 @@ vim.keymap.set("n","<S-Tab>", "gT") -- ""
 vim.keymap.set("n", "tn", ":tabnew<CR>")
 vim.keymap.set("n", "tc", ":tabclose<CR>")
 
+-- windows
+vim.keymap.set("n", "sv", ":vs splitright=true <CR>")
+vim.keymap.set("n", "sh", ":split splitbelow=true <CR>")
+vim.keymap.set("n", "tv", ":vs | te <CR>")
+vim.keymap.set("n", "th", ":split|:resize -8| te <CR>")
 
 
 
