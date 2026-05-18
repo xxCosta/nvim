@@ -27,10 +27,15 @@ vim.keymap.set("v", "<S-Tab>", "<gv")
 -- vim.keymap.set("n", "<leader><leader>s","<cmd>source ~/.config/nvim/lua/plugins/luasnip.lua<CR>")
 --
 
+-- big move horizontally 
 vim.keymap.set("n", "zl", "10zl",{ noremap = true, silent = true})
 vim.keymap.set("n", "zh", "10zh",{ noremap = true, silent = true})
 
-
+-- tabs
+vim.keymap.set("n", "<Tab>", "gt") -- cycletabs
+vim.keymap.set("n","<S-Tab>", "gT") -- ""
+vim.keymap.set("n", "tn", ":tabnew<CR>")
+vim.keymap.set("n", "tc", ":tabclose<CR>")
 
 
 

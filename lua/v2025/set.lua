@@ -37,3 +37,6 @@ vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 
 vim.opt.scrolloff = 999
+
+vim.opt.splitright = true
+
