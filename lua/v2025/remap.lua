@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>rw",vim.cmd.Ex)
+
+-- vim.keymap.set("n", "<leader>rw",vim.cmd.Ex)
 
 --move blocks at a time
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -12,7 +13,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 
@@ -27,13 +28,13 @@ vim.keymap.set("v", "<S-Tab>", "<gv")
 -- vim.keymap.set("n", "<leader><leader>s","<cmd>source ~/.config/nvim/lua/plugins/luasnip.lua<CR>")
 --
 
--- big move horizontally 
-vim.keymap.set("n", "zl", "10zl",{ noremap = true, silent = true})
-vim.keymap.set("n", "zh", "10zh",{ noremap = true, silent = true})
+-- big move horizontally
+vim.keymap.set("n", "zl", "10zl", { noremap = true, silent = true })
+vim.keymap.set("n", "zh", "10zh", { noremap = true, silent = true })
 
 -- tabs
-vim.keymap.set("n", "<Tab>", "gt") -- cycletabs
-vim.keymap.set("n","<S-Tab>", "gT") -- ""
+vim.keymap.set("n", "<Tab>", "gt")   -- cycletabs
+vim.keymap.set("n", "<S-Tab>", "gT") -- ""
 vim.keymap.set("n", "tn", ":tabnew<CR>")
 vim.keymap.set("n", "tc", ":tabclose<CR>")
 
@@ -44,4 +45,3 @@ vim.keymap.set("n", "tv", ":vs | te <CR>")
 vim.keymap.set("n", "th", ":split|:resize -8| te <CR>")
 
 vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { desc = 'Exit terminal mode' })
-
