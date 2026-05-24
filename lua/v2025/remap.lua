@@ -43,5 +43,5 @@ vim.keymap.set("n", "sh", ":split splitbelow=true <CR>")
 vim.keymap.set("n", "tv", ":vs | te <CR>")
 vim.keymap.set("n", "th", ":split|:resize -8| te <CR>")
 
-
+vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { desc = 'Exit terminal mode' })
 

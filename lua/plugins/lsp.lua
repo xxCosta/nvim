@@ -32,7 +32,7 @@ return {
         -- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)     
       vim.api.nvim_create_autocmd("BufWritePre", {
 
-        pattern = { "*.cpp" },
+        pattern = { "*" },
         callback = function()
           vim.lsp.buf.format()
         end
