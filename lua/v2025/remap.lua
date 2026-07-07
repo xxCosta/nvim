@@ -33,10 +33,10 @@ vim.keymap.set("n", "zl", "10zl", { noremap = true, silent = true })
 vim.keymap.set("n", "zh", "10zh", { noremap = true, silent = true })
 
 -- tabs
-vim.keymap.set("n", "<Tab>", "gt")   -- cycletabs
-vim.keymap.set("n", "<S-Tab>", "gT") -- ""
-vim.keymap.set("n", "tn", ":tabnew<CR>")
-vim.keymap.set("n", "tc", ":tabclose<CR>")
+-- vim.keymap.set("n", "<Tab>", "gt")   -- cycletabs
+-- vim.keymap.set("n", "<S-Tab>", "gT") -- ""
+-- vim.keymap.set("n", "tn", ":tabnew<CR>")
+-- vim.keymap.set("n", "tc", ":tabclose<CR>")
 
 -- windows
 vim.keymap.set("n", "sv", ":vs splitright=true <CR>")
