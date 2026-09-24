@@ -39,6 +39,16 @@ return {
 
       })
 
+      vim.filetype.add({
+        extension = {
+          mq4 = "mql4",
+          mq5 = "mql5",
+          mqh = "mql5", -- shared headers; adjust if you want mql4 instead
+        },
+      })
+
+
+
       vim.lsp.config("lua_ls", {
         settings = {
           Lua = {
