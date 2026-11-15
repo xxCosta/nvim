@@ -345,4 +345,3 @@ hi def link mql5CppOut Comment
 
 let b:current_syntax = "mql5"
 
-" vim: ts=8
