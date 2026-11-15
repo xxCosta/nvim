@@ -40,5 +40,3 @@ vim.opt.scrolloff = 999
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-
-
