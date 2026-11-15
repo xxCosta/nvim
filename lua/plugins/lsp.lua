@@ -11,7 +11,7 @@ return {
     },
 
     opts = {
-      ensure_installed = { "lua_ls", "clangd", "dockerls", "bashls", "ts_ls" },
+      ensure_installed = { "lua_ls", "clangd", "dockerls", "bashls", "tsc" },
     },
 
     config = function(_, opts)
@@ -33,7 +33,7 @@ return {
       vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
       vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = { "*" },
+        pattern = { "*.cpp", "*.js", "*.ts", "*.h", "*.lua" },
         callback = function()
           vim.lsp.buf.format()
         end
@@ -64,12 +64,30 @@ return {
         },
       })
 
+
       vim.lsp.enable("mql5-lsp")
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("clangd")
       vim.lsp.enable("dockerls")
       vim.lsp.enable("bashls")
-      vim.lsp.enable("ts_ls")
+      vim.lsp.enable("tsc")
     end,
+  },
+  {
+    'stevearc/conform.nvim',
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          mql5 = { "clang-format" }
+        }
+      })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*.mq5",
+        callback = function(args)
+          require("conform").format({ bufnr = args.buf })
+        end,
+      })
+    end
+
   },
 }
